@@ -104,9 +104,15 @@ export const THEATRES: Term[] = [
     'pokrovsk', 'volchansk', 'kupyansk', 'zelensk', 'kremlin', 'putin', 'moscow', 'russia', 'geran',
     'украин', 'киев', 'росси', 'кремл', 'путин', 'зеленск', 'донбас', 'харьков',
   ] },
+  /* Palestinian and Lebanese newsrooms report at town level — "Jenin",
+     "Khan Younis", "Nabatieh" — usually without naming the country. */
   { id: 'israel-gaza-lebanon', label: 'Israel · Gaza · Lebanon', terms: [
     'israel', 'gaza', 'idf', 'hamas', 'hezbollah', 'lebanon', 'lebanes', 'west bank', 'rafah', 'jerusalem',
-    'tel aviv', 'netanyahu', 'kiryat', 'beirut', 'galilee', 'huckabee', 'израил', 'ливан', 'хамас', 'хезболл',
+    'tel aviv', 'netanyahu', 'kiryat', 'beirut', 'galilee', 'huckabee',
+    'quds', 'al-aqsa', 'jenin', 'nablus', 'ramallah', 'hebron', 'tulkarem', 'bethlehem', 'khan younis',
+    'deir al-balah', 'jabalia', 'beit lahia', 'beit hanoun', 'umm al-fahm', 'nuseirat',
+    'unifil', 'nabatieh', 'bint jbeil', 'sidon', 'dahiyeh', 'litani', 'shebaa', 'naqoura',
+    'израил', 'ливан', 'хамас', 'хезболл',
   ] },
   { id: 'iran-gulf', label: 'Iran & the Gulf', terms: [
     'iran', 'irgc', 'tehran', 'hormuz', 'persian gulf', 'saudi', 'riyadh', 'qatar', 'doha', 'uae', 'emirat',

@@ -13,21 +13,28 @@ import type { Bloc } from '@/lib/alert-digest';
  * channel that fails a refresh keeps serving its last good posts.
  */
 
-// Public Telegram OSINT channels, deliberately spanning the spectrum so no single
-// narrative owns the feed. `lean` and `bloc` travel with every item through to
-// the UI, so nothing here can be mistaken for neutral wire copy.
+// Public Telegram OSINT channels, picked for what they report rather than what
+// they argue. Measured over 72 hours of live posts, each one carries more
+// events — strikes, impacts, intercepts, damage, movements — than commentary,
+// and the roster spans the spectrum so no single narrative owns the feed.
+// `lean` and `bloc` travel with every item to the UI: a partisan field report
+// is still a partisan source, and is labelled as one.
 //
-// OSINTtechnical was dropped on 2026-09-17: its channel has not posted since
-// June 2022, and the old parser stamped those posts with the fetch time.
+// Dropped 2026-09-18 for talking more than they report (event share over
+// quote share, same window): Middle East Spectator 12/41, NEXTA Live 15/45
+// (and 1% English), Bellum Acta 25/44 (also runs advertising in its footer).
+// Earlier: OSINTtechnical (silent since June 2022), Clash Report and Liveuamap.
 const TELEGRAM_CHANNELS: { handle: string; name: string; lean: string; bloc: Bloc }[] = [
-  { handle: 'liveuamap',             name: 'Liveuamap',             lean: 'Pro-Western / Ukraine',         bloc: 'western' },
-  { handle: 'nexta_live',            name: 'NEXTA Live',            lean: 'Eastern European / Anti-RU',    bloc: 'western' },
-  { handle: 'clashreport',           name: 'Clash Report',          lean: 'Turkish / NATO leaning',        bloc: 'regional' },
-  { handle: 'Slavyangrad',           name: 'Slavyangrad',           lean: 'Pro-Russian / Multipolar',      bloc: 'russian' },
+  // Incident feeds: what happened, where, with footage. Least commentary of any source measured.
+  { handle: 'Osintdefender',         name: 'OSINTdefender',         lean: 'Global incident OSINT',         bloc: 'independent' },
+  { handle: 'WarMonitors',           name: 'War Monitor',           lean: 'Global conflict monitor',       bloc: 'independent' },
+  // Russia–Ukraine, reported from both sides of the line.
+  { handle: 'rybar_in_english',      name: 'Rybar',                 lean: 'Russian military OSINT',        bloc: 'russian' },
   { handle: 'DDGeopolitics',         name: 'DD Geopolitics',        lean: 'Multipolar / Russian',          bloc: 'russian' },
-  { handle: 'rybar_in_english',      name: 'Rybar',                 lean: 'Top-tier Russian OSINT',        bloc: 'russian' },
-  { handle: 'Middle_East_Spectator', name: 'Middle East Spectator', lean: 'Middle East / Resistance Axis', bloc: 'regional' },
-  { handle: 'BellumActaNews',        name: 'Bellum Acta',           lean: 'Raw / Uncensored global OSINT', bloc: 'independent' },
+  { handle: 'KyivIndependent_official', name: 'Kyiv Independent',   lean: 'Ukrainian newsroom',            bloc: 'western' },
+  // Gaza, the West Bank and south Lebanon, from newsrooms on the ground.
+  { handle: 'QudsNen',               name: 'Quds News Network',     lean: 'Palestinian / Gaza & West Bank', bloc: 'regional' },
+  { handle: 'AlMayadeenEnglish',     name: 'Al Mayadeen English',   lean: 'Lebanese / Resistance Axis',    bloc: 'regional' },
 ];
 type Channel = (typeof TELEGRAM_CHANNELS)[number];
 

@@ -22,6 +22,18 @@ describe('classify', () => {
     expect(c.topics).toEqual(expect.arrayContaining(['drones', 'strikes', 'maritime']));
   });
 
+  /* Palestinian and Lebanese newsrooms name the town, not the country. */
+  it('files town-level Gaza, West Bank and south Lebanon reporting under the right theatre', () => {
+    for (const title of [
+      'Israeli occupation forces raid Jenin refugee camp',
+      'Casualties reported after a strike on Khan Younis',
+      'Shelling near Nabatieh as UNIFIL reports movement along the Blue Line',
+      'Clashes in Umm al-Fahm after a funeral procession',
+    ]) {
+      expect(classify({ title }).theatres, title).toContain('israel-gaza-lebanon');
+    }
+  });
+
   it('reads Russian-language posts', () => {
     const c = classify({ title: 'В Кремле переполох — принятие закона об «адских санкциях»' });
     expect(c.theatres).toContain('russia-ukraine');
