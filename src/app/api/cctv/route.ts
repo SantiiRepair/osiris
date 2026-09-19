@@ -32,6 +32,7 @@ import { fetchThailandCameras } from './thailand';
 import { fetchAsiaLiveCameras } from './asia-live';
 import { fetchNewZealandCameras } from './newzealand';
 import { fetchLithuaniaCameras } from './lithuania';
+import { fetchEdmontonCameras } from './edmonton';
 import { fetchOregonCameras } from './oregon';
 import { fetchMichiganCameras } from './michigan';
 import { fetchIndianaCameras } from './indiana';
@@ -512,6 +513,7 @@ const RAW_REGION_FETCHERS: Record<string, RegionFetcher> = {
   'asia-live': fetchAsiaLiveCameras,
   'newzealand': fetchNewZealandCameras,
   'lithuania': fetchLithuaniaCameras,
+  'edmonton': fetchEdmontonCameras,
   'oregon': fetchOregonCameras,
   'michigan': fetchMichiganCameras,
   'indiana': fetchIndianaCameras,
@@ -812,6 +814,7 @@ function getRegionsForBounds(lat: number, lng: number, radius: number): string[]
   if (lat > 31.3 && lat < 37.1 && lng > -115.0 && lng < -109.0) regions.push('arizona');
   // Canada
   if (lat > 42 && lat < 70 && lng > -141 && lng < -52) regions.push('canada');
+  if (lat > 53.3 && lat < 53.8 && lng > -114.0 && lng < -113.2) regions.push('edmonton');
   // Europe
   const inBulgaria = lat > 41 && lat < 44.5 && lng > 22 && lng < 29.5;
   const inGreece = lat > 34.5 && lat < 41.8 && lng > 19 && lng < 30;
